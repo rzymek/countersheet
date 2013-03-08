@@ -76,6 +76,7 @@ public class CounterSheet {
 			List<BufferedImage> side = new ArrayList<BufferedImage>();
 			side.addAll(fronts);
 			side.addAll(singleSided);
+			System.out.println("Total counters: "+side.size());
 			BufferedImage img = draw(columns, side);
 			ImageIO.write(img, FORMAT, new File(dir,"1-front."+FORMAT));
 		}
@@ -89,9 +90,9 @@ public class CounterSheet {
 			ImageIO.write(img, FORMAT, new File(dir,"3-back."+FORMAT));
 			img.getGraphics().drawImage(img, img.getWidth(),0, 0, img.getHeight(),  
 					0,0,img.getWidth(), img.getHeight(), null);
-			ImageIO.write(img, FORMAT, new File(dir,"0-check1."+FORMAT));
+			ImageIO.write(img, FORMAT, new File(dir,"0-check-reorder."+FORMAT));
 			img = draw(columns, backs);
-			ImageIO.write(img, FORMAT, new File(dir,"2-check2."+FORMAT));
+			ImageIO.write(img, FORMAT, new File(dir,"2-check-positions."+FORMAT));
 		}
 	}
 		
